@@ -1,1 +1,1 @@
-Vedere la sezione about della repository.
+Vedere la sezione About della repository.
