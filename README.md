@@ -1,1 +1,2 @@
-Vedere la sezione il file linea guida della cartella linne guida.
+Vedere il file .pdf.
+Si trova su: regole del progetto/file .pdf/
