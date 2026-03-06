@@ -1,1 +1,0 @@
-Ogni gruppo agirà come una software house. Il progetto dovrà essere sviluppato in ambiente LAMP (XAMPP), essere accessibile in rete locale (tramite l'IP del server) e prevedere almeno due livelli di accesso (User e Admin) gestiti tramite sessioni PHP.
