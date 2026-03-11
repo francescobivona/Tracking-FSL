@@ -2,6 +2,7 @@ Modello logico
 
 Utente (id_utente, nome, cognome, codice_fiscale, email, data_nascita, sesso, luogo, classe, scuola, sezione, username, password, materia, titolo_studio, indirizzo_studio, data_creazione, attivo)
 
-Attivita (id_attivita, descrizione, data, n_ore, modalita, azienda, fk_utente)
+Attivita (id_attivita, descrizione, data_inizio, data_fine, n_ore, modalita, azienda, ore_totali, fk_utente)
 
 Ruolo (id_ruolo, tipo, create, modify, retriev, delete, fk_utente)
+
