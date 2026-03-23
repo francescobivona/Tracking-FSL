@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #a8c0d6 0%, #c9a8c8 100%);
+      font-family: 'Georgia', serif;
+    }
+
+    .login-box {
+      width: 480px;
+      padding: 60px 60px 70px;
+      border-top: 1px solid rgba(255, 255, 255, 0.6);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .login-box h1 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: #1a2a4a;
+      margin-bottom: 48px;
+    }
+
+    .login-box form {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-bottom: 1px solid #1a2a4a;
+      padding-bottom: 8px;
+    }
+
+    .input-group svg {
+      flex-shrink: 0;
+      color: #1a2a4a;
+    }
+
+    .input-group input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 0.95rem;
+      color: #1a2a4a;
+      letter-spacing: 0.04em;
+      font-family: 'Georgia', serif;
+    }
+
+    .input-group input::placeholder {
+      color: #1a2a4a;
+      opacity: 0.7;
+    }
+
+    #button {
+      border: none;
+      background: #1a2a4a;
+      outline: none;
+      font-size: 0.95rem;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      font-family: 'Georgia', serif;
+      cursor: pointer;
+      padding: 12px 24px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    #button:hover {
+      background: #2a3a5a;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Login</h1>
+    <form method="post">
+      <div class="input-group">
+        <input type="text" placeholder="Username">
+      </div>
+      <div class="input-group">
+        <input type="password" placeholder="Password">
+      </div>
+      <input type="submit" id="button" value="LOGIN">
+    </form>
+  </div>
+</body>
+</html>
