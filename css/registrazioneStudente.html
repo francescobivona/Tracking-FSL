@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrazione Studente</title>
+    <link rel="stylesheet" href="HomePage.css">
+    <link rel="stylesheet" href="registrazioneStudente.css">
+</head>
+<body>
+    <h1>Registrazione Studente</h1>
+    <div class="forms-container">
+        <form class="registration-form" action="registrazioneStudente.php" method="post">
+            <div class="form-field">
+                Nome: <input type="text" id="nome" name="nome" placeholder="Inserisci il nome">
+            </div>
+            <div class="form-field">
+                Cognome: <input type="text" id="cognome" name="cognome" placeholder="Inserisci il cognome">
+            </div>
+            <div class="form-field">
+                Data di nascita: <input type="date" id="data_nascita" name="data_nascita" placeholder="gg/mm/aaaa">
+            </div>
+            <div class="form-field">
+                Luogo di nascita: <input type="text" id="luogo_nascita" name="luogo_nascita" placeholder="Es. Roma">
+            </div>
+            <div class="form-field">
+                Codice fiscale: <input type="text" id="codice_fiscale" name="codice_fiscale" placeholder="Es. RSSMRA85M01H501Z">
+            </div>
+            <div class="form-field">
+                <label for="sesso">Sesso</label>
+                <select id="sesso" name="sesso">
+                    <option value="">Seleziona…</option>
+                    <option value="M">Maschio</option>
+                    <option value="F">Femmina</option>
+                </select>
+            </div>
+            <div class="form-field">
+                Email: <input type="email" id="email" name="email" placeholder="nome@esempio.it">
+            </div>
+            <div class="form-field">
+                Scuola: <input type="text" id="scuola" name="scuola" placeholder="Nome dell'istituto">
+            </div>
+            <div class="form-field">
+                Classe: <input type="text" id="classe" name="classe" placeholder="Es. III, IV">
+            </div>
+            <div class="form-field">
+                <label for="sezione">Sezione</label>
+                <select id="sezione" name="sezione">
+                    <option value="">Seleziona…</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <label for="indirizzo_studio">Indirizzo di studio</label>
+                <select id="indirizzo_studio" name="indirizzo_studio">
+                    <option value="">Seleziona…</option>
+                    <option value="liceo_scientifico">Liceo scientifico</option>
+                    <option value="liceo_classico">Liceo classico</option>
+                    <option value="liceo_linguistico">Liceo linguistico</option>
+                    <option value="liceo_artistico">Liceo artistico</option>
+                    <option value="istituto_tecnico">Istituto tecnico</option>
+                    <option value="istituto_professionale">Istituto professionale</option>
+                    <option value="altro">Altro</option>
+                </select>
+            </div>
+            <div class="form-field">
+                Username: <input type="text" id="username" name="username" placeholder="Scegli uno username">
+            </div>
+            <div class="form-field">
+                Password: <input type="password" id="password" name="password" placeholder="La tua password">
+            </div>
+            <div class="form-actions">
+                <input type="submit" value="Registrati">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
