@@ -1,8 +1,8 @@
 Modello logico
 
-Utente (id_utente, nome, cognome, codice_fiscale, email, data_nascita, sesso, luogo, classe, scuola, sezione, username, password, materia, titolo_studio, indirizzo_studio, data_creazione, attivo)
+Tutor (id_tutor, nome, cognome, email, data_nascita, sesso, luogo_nascita, scuola, username, password, materia, titolo_studio, admin)
 
-Attivita (id_attivita, descrizione, data_inizio, data_fine, n_ore, modalita, azienda, ore_totali, fk_utente)
+Progetto (id_progetto, descrizione, data_inizio, data_fine, n_ore, modalita, azienda, ore_fatte, convenzione, fk_progetto_tutor, fk_progetto_studente)
 
-Ruolo (id_ruolo, tipo, create, modify, retriev, delete, fk_utente)
+Studente (id_studente, nome, cognome, data_nascita, luogo_nascita, email, sesso, classe, indirizzo_studio, username, password, sezione, n_ore_FSL, n_ore_fatte, fk_studente_tutor)
 
