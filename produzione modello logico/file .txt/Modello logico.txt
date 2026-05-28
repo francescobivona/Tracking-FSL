@@ -1,9 +1,0 @@
-Modello logico
-
-Tutor (id_tutor(PK), nome, cognome, email, data_nascita, sesso, luogo_nascita, scuola, username, password, materia, titolo_studio, admin)
-
-Progetto (id_progetto(PK), descrizione, data_inizio, data_fine, n_ore, modalita, azienda, ore_fatte, convenzione, id_tutor(PK)(FK))
-
-Studente (id_studente(PK), nome, cognome, data_nascita, luogo_nascita, email, sesso, classe, indirizzo_studio, username, password, sezione, n_ore_FSL, n_ore_fatte, id_tutor(PK)(FK))
-
-Partecipazione (id_studente(PK)(FK), id_attivita(PK)(FK))
