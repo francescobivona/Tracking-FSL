@@ -1,0 +1,196 @@
+/* ========== FILE: dashboardStudente.css ========== */
+/* Stili della dashboard studente - coerenti con HomePage.css e login.css */
+
+/* ========== VARIABILI CSS (Custom Properties) ========== */
+:root {
+  --fsl-blue: #007bff;
+  --fsl-blue-dark: #0056b3;
+  --bg: #f5f9ff;
+}
+
+/* ========== BODY - LAYOUT PRINCIPALE ========== */
+/* Riuso globale simile alle altre pagine */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  background-color: var(--bg);
+}
+
+/* ========== CONTENITORE PRINCIPALE DELLA DASHBOARD ========== */
+.dashboard-root {
+  flex: 1;
+  width: 100%;
+  max-width: 980px;
+  padding: 24px 16px 40px;
+  box-sizing: border-box;
+}
+
+/* ========== TITOLO PRINCIPALE ========== */
+h1 {
+  text-align: center;
+  color: var(--fsl-blue);
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* ========== GRIGLIA DELLA DASHBOARD ========== */
+/* Layout a 2 colonne: profilo a sinistra, attività a destra */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ========== CARD COMUNE (Stile riutilizzabile) ========== */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid var(--fsl-blue);
+  padding: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ========== PROFILO CARD - SEZIONE SUPERIORE ========== */
+.profile-card .profile-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* ========== IMMAGINE PROFILO ========== */
+.profile-image {
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* ========== NOME STUDENTE ========== */
+.student-name {
+  margin: 0 0 6px 0;
+  color: var(--fsl-blue-dark);
+  font-size: 1.1rem;
+}
+
+/* ========== METADATI STUDENTE (Classe, Email, etc.) ========== */
+.student-meta {
+  color: #0056b3;
+  font-size: 0.95rem;
+}
+
+/* ========== BUTTON STYLING ========== */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--fsl-blue);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.18s ease, transform 0.12s ease;
+}
+
+/* Effetto hover su button */
+.btn:hover { 
+  background: var(--fsl-blue-dark); 
+  transform: translateY(-2px); 
+}
+
+/* ========== BUTTON GHOST (Outline style) ========== */
+.btn.ghost {
+  background: transparent;
+  color: var(--fsl-blue);
+  border: 2px solid var(--fsl-blue);
+}
+
+/* ========== TITOLI DELLE CARD ========== */
+.tutor-card h3 {
+  margin: 0 0 10px 0;
+  color: var(--fsl-blue);
+}
+
+/* ========== LISTA GENERICA ========== */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #333;
+}
+
+/* ========== TESTO MUTO/SECONDARIO ========== */
+.muted { 
+  color: #6b8fbf; 
+  font-size: 0.95rem; 
+}
+
+/* ========== SMALL LINK (Piccoli link di navigazione) ========== */
+.small-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--fsl-blue);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+/* ========== TUTOR INFO LAYOUT ========== */
+.tutor-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* ========== IMMAGINE DEL TUTOR ========== */
+.tutor-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* ========== RESPONSIVE DESIGN - TABLET E MOBILE ========== */
+@media (max-width: 820px) {
+  /* Su schermi piccoli: layout a 1 colonna */
+  .dashboard-grid { 
+    grid-template-columns: 1fr; 
+  }
+}
+
+/* ========== CARD DELLE ATTIVITÀ ========== */
+/* Questo elemento occupa tutte le colonne della griglia */
+.activities-card {
+  grid-column: 1 / -1; /* occupa tutte le colonne della griglia */
+}
+
+/* ========== LISTA DELLE ATTIVITÀ ========== */
+.activities-list .list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ========== ELEMENTI DELLA LISTA ATTIVITÀ ========== */
+.activities-list .list li {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fbfdff;
+}
+
+/* ========== BUTTON NELLA CARD ATTIVITÀ ========== */
+/* Imposta una larghezza minima per il bottone */
+.activities-card .btn { 
+  min-width: 140px; 
+}

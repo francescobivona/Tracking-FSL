@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard Tutor</title>
+	<link rel="stylesheet" href="HomePage.css">
+	<link rel="stylesheet" href="dashboardTutor.css">
+</head>
+<body style="padding-top: 78px;">
+	<iframe
+		src="headerAdmin.html"
+		title="Header"
+		style="width: 100%; border: 0; height: 78px; display: block; position: fixed; top: 0; left: 0; z-index: 9999;"
+		scrolling="no"
+	></iframe>
+	
+	<main class="page-content dashboard-root" role="main">
+		<h1>Dashboard Tutor</h1>
+
+		<div class="dashboard-grid">
+			<section class="card profile-card" aria-label="Profilo tutor">
+				<div class="profile-top">
+					<img class="profile-image" src="userImage.png" alt="Immagine tutor">
+					<div class="profile-info">
+						<h2 class="tutor-name" id="tutor-name"></h2>
+					</div>
+				</div>
+			</section>
+
+			<section class="card insert-card" aria-label="Inserimento attività FSL">
+				<h3>Inserisci nuova attività FSL</h3>
+				<p class="muted">Compila il modulo per aggiungere un'attività.</p>
+
+				<form action="inserimentoAttivita.php" method="post" class="insert-form">
+					<label for="titolo">Titolo</label>
+					<input id="titolo" name="titolo" type="text" required>
+
+					<label for="descrizione">Descrizione</label>
+					<textarea id="descrizione" name="descrizione" rows="4" required></textarea>
+
+					<div class="form-row">
+						<div>
+							<label for="data_inizio">Data inizio</label>
+							<input id="data_inizio" name="data_inizio" type="date" required>
+						</div>
+						<div>
+							<label for="data_fine">Data fine</label>
+							<input id="data_fine" name="data_fine" type="date">
+						</div>
+					</div>
+					<div class="form-row">
+						<div>
+							<label for="ore">Ore previste</label>
+							<input id="ore" name="ore" type="number" min="0" step="0.5">
+						</div>
+						<div>
+							<label>Modalità</label>
+							<label><input type="radio" name="modalita" value="presenza" checked> presenza</label>
+							<label><input type="radio" name="modalita" value="online"> online</label>
+						</div>
+					</div>
+					<div class="form-row">
+						<div>
+							<label for="azienda">Azienda</label>
+							<input id="azienda" name="azienda" type="text" required>
+						</div>
+						<div>
+							<label delegate="convenzione">Convenzione</label>
+							<input id="convenzione" name="convenzione" type="text" required>
+						</div>
+					</div>
+					<div class="form-field">
+                		<label for="id_tutor">Tutor</label>
+                		<select id="id_tutor" name="id_tutor">
+                    		<option value="">Seleziona…</option>
+                		</select>
+            		</div>
+					<div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+						<input class="btn" type="submit" value="Salva attività">
+					</div>
+				</form>
+			</section>
+
+			<section class="card activities-card" aria-label="Attività assegnate">
+				<h3>Attività assegnate</h3>
+				<p class="muted">Elenco delle attività</p>
+				<div class="activities-list">
+					<ul class="list" id="assigned-activities">
+						<li class="muted placeholder">Caricamento attività...</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<iframe
+		src="Footer.html"
+		title="Footer"
+		style="width: 100%; border: 0; height: 90px; margin-top: auto; display: block;"
+		scrolling="no"
+	></iframe>
+
+	<script>
+		// 1. CARICA I DATI DEL TUTOR 
+		fetch("caricaDatiTutorAdmin.php")
+			.then(response => response.text())
+			.then(htmlGenerato => {
+				// Sostituisce il placeholder con i dati reali del tutor
+				document.getElementById("tutor-name").innerHTML = htmlGenerato;
+			})
+			.catch(error => {
+				console.error("Errore nel caricamento del profilo:", error);
+				profileInfo.innerHTML = '<h2 class="tutor-name">Errore nel caricamento.</h2>';
+			});
+
+		document.addEventListener("DOMContentLoaded", function() {
+            const selectTutor = document.getElementById("id_tutor");
+
+            // Chiama il file PHP in background
+            fetch("tutorDinamici.php")
+                .then(response => response.text())
+                .then(htmlGenerato => {
+                    // Aggiunge le <option> stampate dal PHP dentro la select
+                    selectTutor.innerHTML += htmlGenerato;
+                })
+                .catch(error => {
+                    console.error("Errore nel caricamento dei tutor:", error);
+                });
+        });
+		
+		// Recuperiamo l'elemento corretto usando il suo ID "assigned-activities"
+		const listActivities = document.getElementById("assigned-activities");
+		//Carica la lista delle attività
+        fetch("caricaAttivita.php")
+            .then(response => response.text())
+            .then(htmlGenerato => {
+                // Sostituisce il placeholder "Caricamento attività..." con la lista reale
+                listActivities.innerHTML = htmlGenerato;
+            })
+            .catch(error => {
+                console.error("Errore nel caricamento delle attività:", error);
+                listActivities.innerHTML = '<li class="muted">Errore nel caricamento delle attività.</li>';
+            });
+	</script>
+</body>
+</html>

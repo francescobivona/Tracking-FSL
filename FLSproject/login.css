@@ -1,0 +1,106 @@
+/* ========== RESET GLOBALE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BODY - LAYOUT PRINCIPALE ========== */
+body {
+  margin: 0;
+  min-height: 100vh;
+  /* Flex layout per posizionare il contenuto al centro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* Sfondo azzurrino leggero */
+  background-color: #f5f9ff;
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+/* ========== CONTENITORE DEL CONTENUTO ========== */
+.page-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* ========== BOX DI LOGIN ========== */
+.login-box {
+  width: 420px;
+  padding: 30px 36px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 2px solid #007bff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== TITOLO DEL LOGIN ========== */
+.login-box h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 28px;
+  font-size: 2rem;
+}
+
+/* ========== FORM DI LOGIN ========== */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ========== INPUT GROUP (Campo input con styling) ========== */
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c9defa;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background-color: #f8fbff;
+}
+
+/* ========== INPUT FIELD ========== */
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.95rem;
+  color: #0056b3;
+  font-family: Arial, sans-serif;
+}
+
+/* Placeholder text styling */
+.input-group input::placeholder {
+  color: #5f8fc7;
+  opacity: 1;
+}
+
+/* ========== BUTTON DI SUBMIT ========== */
+#button {
+  border: none;
+  background: #007bff;
+  outline: none;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 12px 24px;
+  border-radius: 6px;
+  /* Transizioni smooth per effetti interattivi */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Effetto hover sul button (cambio colore e traslazione verso l'alto) */
+#button:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+

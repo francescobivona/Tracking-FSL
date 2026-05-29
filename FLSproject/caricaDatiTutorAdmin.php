@@ -1,0 +1,54 @@
+<?php
+/**
+ * FILE: caricaDatiTutorAdmin.php
+ * DESCRIZIONE: Carica e visualizza i dati del tutor vista amministratore
+ * Questo file è praticamente identico a caricaDatiTutor.php ma con controllo per admin
+ * Mostra: Nome completo, Materia insegnata e Email
+ */
+
+session_start();
+include 'config.php';
+
+// ========== CONTROLLO SICUREZZA ==========
+// Verifica che un admin sia loggato (non un tutor regolare)
+if (!isset($_SESSION['loggatoAdmin']) || $_SESSION['loggatoAdmin'] !== true) {
+    echo "<h2 class='tutor-name'>Accesso negato.</h2>";
+    exit();
+}
+
+// ========== RECUPERO USERNAME DALLA SESSIONE ==========
+// L'username viene salvato in sessione durante il login (per admin è sempre 'ADMIN')
+$username = $_SESSION['username'];
+
+// ========== QUERY PER RECUPERARE I DATI DEL TUTOR ==========
+// Nota: questa query cerca il tutor dal database, ma l'admin è nella sessione
+// Questo file probabilmente è usato per mostrare i dati di un tutor specifico all'admin
+$sqlTutor = "SELECT * FROM tutor WHERE username = '$username'";
+$resultTutor = mysqli_query($conn, $sqlTutor);
+
+// Recupera il risultato come array associativo
+$tutor = mysqli_fetch_assoc($resultTutor);
+
+// ========== GENERAZIONE DELL'OUTPUT HTML ==========
+if ($tutor) {
+    // Sanificazione degli output HTML per prevenire XSS
+    // htmlspecialchars() converte i caratteri speciali in entità HTML sicure
+    
+    // Nome e cognome vengono concatenati con uno spazio
+    $nomeCompleto = htmlspecialchars($tutor['nome'] . " " . $tutor['cognome']);
+    
+    // Materia insegnata dal tutor
+    $materia = htmlspecialchars($tutor['materia']);
+    
+    // Email sanificata
+    $email = htmlspecialchars($tutor['email']);
+
+    // Genera gli elementi HTML che verranno inseriti nel DOM
+    echo "<h2 class='tutor-name' id='tutor-name'>{$nomeCompleto}</h2>";
+    echo "<div class='tutor-meta' id='tutor-materia'>{$materia}</div>";
+    echo "<div class='tutor-meta' id='tutor-email'>{$email}</div>";
+} else {
+    // Se il tutor non viene trovato nel database
+    echo "<h2 class='tutor-name'>Tutor non trovato.</h2>";
+}
+?>

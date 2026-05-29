@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard Tutor</title>
+	<link rel="stylesheet" href="HomePage.css">
+	<link rel="stylesheet" href="dashboardTutor.css">
+</head>
+<body style="padding-top: 78px;">
+	<iframe
+		src="headerTutor.html"
+		title="Header"
+		style="width: 100%; border: 0; height: 78px; display: block; position: fixed; top: 0; left: 0; z-index: 9999;"
+		scrolling="no"
+	></iframe>
+	<main class="page-content dashboard-root" role="main">
+		<h1>Dashboard Tutor</h1>
+
+		<div class="dashboard-grid">
+			<section class="card profile-card" aria-label="Profilo tutor">
+				<div class="profile-top">
+					<img class="profile-image" src="userImage.png" alt="Immagine tutor">
+					<div class="profile-info">
+						<h2 class="tutor-name" id="tutor-name"></h2>
+					</div>
+				</div>
+			</section>
+
+			<!-- Lista attività del tutor -->
+			<section class="card activities-card" aria-label="Attività FSL">
+				<h3>Le mie attività FSL</h3>
+				<p class="muted">Elenco delle attività che hai creato per i tuoi studenti</p>
+				<div class="activities-list">
+					<ul class="list" id="tutor-activities">
+						<li class="muted placeholder">Non hai creato nessuna attività ancora.</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<iframe
+		src="Footer.html"
+		title="Footer"
+		style="width: 100%; border: 0; height: 90px; margin-top: auto; display: block;"
+		scrolling="no"
+	></iframe>
+
+	<script>
+		// 1. CARICA I DATI DEL TUTOR (Prende spunto dal tuo modello)
+		fetch("caricaDatiTutor.php")
+			.then(response => response.text())
+			.then(htmlGenerato => {
+				// Sostituisce il placeholder con i dati reali del tutor
+				document.getElementById("tutor-name").innerHTML = htmlGenerato;
+			})
+			.catch(error => {
+				console.error("Errore nel caricamento del profilo:", error);
+				profileInfo.innerHTML = '<h2 class="tutor-name">Errore nel caricamento.</h2>';
+			});
+
+			// Recuperiamo l'elemento corretto usando il suo ID "assigned-activities"
+			const listActivities = document.getElementById("tutor-activities");
+  		//Carica la lista delle attività
+        fetch("caricaAttivitaTutor.php")
+            .then(response => response.text())
+            .then(htmlGenerato => {
+                // Sostituisce il placeholder con la lista reale
+                listActivities.innerHTML = htmlGenerato;
+            })
+            .catch(error => {
+                console.error("Errore nel caricamento delle attività:", error);
+                listActivities.innerHTML = '<li class="muted">Errore nel caricamento delle attività.</li>';
+            });
+</script>
+</body>
+</html>

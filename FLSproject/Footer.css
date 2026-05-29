@@ -1,0 +1,76 @@
+/* ========== FOOTER PRINCIPALE ========== */
+.site-footer {
+  width: 100%;
+  margin-top: 32px;
+  padding: 18px 16px;
+  background-color: #ffffff;
+  border-top: 2px solid #007bff;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.06);
+  font-family: Arial, sans-serif;
+}
+
+/* ========== CONTENITORE INTERNO DEL FOOTER ========== */
+.site-footer .footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ========== SEZIONE SINISTRA DEL FOOTER ========== */
+/* Contiene di solito il copyright o branding */
+.site-footer .footer-left {
+  color: #0056b3;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* ========== SEZIONE DESTRA DEL FOOTER ========== */
+/* Contiene i link di navigazione del footer */
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ========== LINK DEL FOOTER ========== */
+.site-footer a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  /* Transizioni smooth per effetti hover */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Effetto hover sui link del footer */
+.site-footer a:hover {
+  color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* ========== TESTO SECONDARIO DEL FOOTER ========== */
+/* Per testo meno importante (es. informazioni aggiuntive) */
+.site-footer {
+  color: #5f8fc7;
+  font-weight: normal;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+/* Adattamento per schermi piccoli */
+@media (max-width: 520px) {
+  .site-footer .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    justify-content: flex-start;
+  }
+}
+

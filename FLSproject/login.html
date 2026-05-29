@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <!-- Metadati della pagina -->
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <!-- Collegamento al file CSS di stile -->
+  <link rel="stylesheet" href="login.css">
+</head>
+<body style="padding-top: 78px;">
+  <!-- ========== HEADER INCLUSO VIA IFRAME ========== -->
+  <!-- L'header è un componente esterno riutilizzabile caricato in un iframe fisso -->
+  <!-- fixed: rimane sempre visibile durante lo scroll -->
+  <!-- z-index: 9999: appare sopra tutti gli altri elementi -->
+  <iframe
+    src="Header.html"
+    title="Header"
+    style="width: 100%; border: 0; height: 78px; display: block; position: fixed; top: 0; left: 0; z-index: 9999;"
+    scrolling="no"
+  ></iframe>
+
+  <!-- ========== CONTENITORE PRINCIPALE ========== -->
+  <div class="page-content">
+    <!-- ========== BOX DI LOGIN ========== -->
+    <div class="login-box">
+      <h1>Login</h1>
+      
+      <!-- ========== FORM DI LOGIN ========== -->
+      <!-- Metodo POST per sicurezza (i dati non sono visibili nell'URL) -->
+      <!-- Action: login.php elaborerà il form -->
+      <form action="login.php" method="post">
+        
+        <!-- ========== CAMPO USERNAME ========== -->
+        <div class="input-group">
+          <input type="text" placeholder="Username" name="username" required>
+        </div>
+
+        <!-- ========== CAMPO PASSWORD ========== -->
+        <div class="input-group">
+          <input type="password" placeholder="Password" name="password" required>
+        </div>
+
+        <!-- ========== BOTTONE DI SUBMIT ========== -->
+        <input type="submit" id="button" value="LOGIN">
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER INCLUSO VIA IFRAME ========== -->
+  <!-- Il footer è un componente esterno riutilizzabile -->
+  <!-- margin-top: auto: lo mantiene in fondo alla pagina -->
+  <iframe
+    src="Footer.html"
+    title="Footer"
+    style="width: 100%; border: 0; height: 90px; margin-top: auto; display: block;"
+    scrolling="no"
+  ></iframe>
+</body>
+</html>

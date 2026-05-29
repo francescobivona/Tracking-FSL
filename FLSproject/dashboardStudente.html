@@ -1,0 +1,74 @@
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Studente</title>
+  <link rel="stylesheet" href="HomePage.css">
+  <link rel="stylesheet" href="dashboardStudente.css">
+</head>
+<body style="padding-top: 78px;">
+  <iframe
+    src="Header.html"
+    title="Header"
+    style="width: 100%; border: 0; height: 78px; display: block; position: fixed; top: 0; left: 0; z-index: 9999;"
+    scrolling="no"
+  ></iframe>
+
+  <section class="card profile-card" aria-label="Profilo tutor">
+				<div class="profile-top">
+					<img class="profile-image" src="userImage.png" alt="Immagine tutor">
+					<div class="profile-info">
+						<h2 class="studente-name" id="studente-name"></h2>
+					</div>
+				</div>
+		</section>
+
+  <main class="page-content dashboard-root" role="main">
+    <h1>Attività FSL</h1>
+
+    <div class="activities-card card" aria-label="Attività FSL">
+      <p class="muted">Elenco delle attività FSL assegnate dal tuo tutor.</p>
+      <div class="activities-list">
+        <ul class="list" id="fsl-activities">
+          <li class="muted placeholder">Il tutor non ha inserito nessuna attività ancora.</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <iframe
+    src="Footer.html"
+    title="Footer"
+    style="width: 100%; border: 0; height: 90px; margin-top: auto; display: block;"
+    scrolling="no"
+  ></iframe>
+
+<script>
+  // 1. CARICA I DATI DELLO STUDENTE
+		fetch("caricaDatiStudente.php")
+			.then(response => response.text())
+			.then(htmlGenerato => {
+				// Sostituisce il placeholder con i dati reali dello studente
+				document.getElementById("studente-name").innerHTML = htmlGenerato;
+			})
+			.catch(error => {
+				console.error("Errore nel caricamento del profilo:", error);
+				profileInfo.innerHTML = '<h2 class="studente-name">Errore nel caricamento.</h2>';
+			});
+
+      // Recuperiamo l'elemento corretto usando il suo ID "fsl-activities"
+      const listActivities = document.getElementById("fsl-activities");
+    //Carica la lista delle attività
+        fetch("caricaAttivitaStudente.php")
+            .then(response => response.text())
+            .then(htmlGenerato => {
+                // Sostituisce il placeholder con la lista reale
+                listActivities.innerHTML = htmlGenerato;
+            })
+            .catch(error => {
+                console.error("Errore nel caricamento delle attività:", error);
+                listActivities.innerHTML = '<li class="muted">Errore nel caricamento delle attività.</li>';
+            });
+</script>
+</body>
+</html>

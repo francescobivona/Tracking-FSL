@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrazione Tutor</title>
+    <link rel="stylesheet" href="HomePage.css">
+    <link rel="stylesheet" href="registrazioneTutor.css">
+</head>
+<body style="padding-top: 78px;">
+    <iframe
+      src="headerAdmin.html"
+      title="Header"
+      style="width: 100%; border: 0; height: 78px; display: block; position: fixed; top: 0; left: 0; z-index: 9999;"
+      scrolling="no"
+    ></iframe>
+    <h1>Registrazione Tutor</h1>
+    <div class="forms-container">
+        <form class="registration-form" action="registrazioneTutor.php" method="post">
+            <div class="form-field">
+                Nome: <input type="text" id="nome" name="nome" placeholder="Inserisci il nome">
+            </div>
+            <div class="form-field">
+                Cognome: <input type="text" id="cognome" name="cognome" placeholder="Inserisci il cognome">
+            </div>
+            <div class="form-field">
+                Data di nascita: <input type="date" id="data_nascita" name="data_nascita" placeholder="gg/mm/aaaa">
+            </div>
+            <div class="form-field">
+                Luogo di nascita: <input type="text" id="luogo_nascita" name="luogo_nascita" placeholder="Es. Roma">
+            </div>
+            <div class="form-field">
+                <label for="sesso">Sesso</label>
+                <select id="sesso" name="sesso">
+                    <option value="">Seleziona…</option>
+                    <option value="M">Maschio</option>
+                    <option value="F">Femmina</option>
+                </select>
+            </div>
+            <div class="form-field">
+                Email: <input type="email" id="email" name="email" placeholder="nome@esempio.it">
+            </div>
+            <div class="form-field">
+                Scuola: <input type="text" id="scuola" name="scuola" placeholder="Nome dell'istituto">
+            </div>
+            <div class="form-field">
+                Materie: <input type="text" id="materia" name="materia" placeholder="Es. Matematica, Italiano">
+            </div>
+            <div class="form-field">
+                Titolo di studio: <input type="text" id="titolo_studio" name="titolo_studio" placeholder="Es. Laurea triennale">
+            </div>
+            <div class="form-field">
+                Username: <input type="text" id="username" name="username" placeholder="Scegli uno username">
+            </div>
+            <div class="form-field">
+                Password: <input type="password" id="password" name="password" placeholder="La tua password">
+            </div>
+            <div class="form-actions">
+                <input type="submit" value="Registrati">
+            </div>
+        </form>
+    </div>
+    <iframe
+      src="Footer.html"
+      title="Footer"
+      style="width: 100%; border: 0; height: 90px; margin-top: auto; display: block;"
+      scrolling="no"
+    ></iframe>
+</body>
+</html>

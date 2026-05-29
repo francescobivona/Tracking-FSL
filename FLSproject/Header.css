@@ -1,0 +1,107 @@
+/* ========== VARIABILI CSS (Custom Properties) ========== */
+/* Centralizza i colori del tema per facilità di manutenzione */
+:root {
+  /* Blu principale del sistema FSL */
+  --fsl-blue: #007bff;
+  /* Blu più scuro per hover e stato attivo */
+  --fsl-blue-dark: #0056b3;
+  /* Colore di sfondo principale (bianco) */
+  --fsl-bg: #ffffff;
+  /* Ombra sottile per profondità */
+  --fsl-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* ========== RESET GLOBALE ========== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: transparent;
+}
+
+/* ========== HEADER PRINCIPALE ========== */
+.site-header {
+  width: 100%;
+  background-color: var(--fsl-bg);
+  border-bottom: 2px solid var(--fsl-blue);
+  box-shadow: var(--fsl-shadow);
+}
+
+/* ========== CONTENITORE INTERNO DELL'HEADER ========== */
+.site-header .header-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ========== BRAND/LOGO ========== */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+/* Quadrato con iniziali o logo */
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fsl-blue);
+  color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+/* Testo del brand accanto al logo */
+.brand-text {
+  color: var(--fsl-blue-dark);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* ========== NAVIGAZIONE PRINCIPALE ========== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Link di navigazione */
+.main-nav a {
+  color: var(--fsl-blue);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  /* Transizioni smooth per miglior UX */
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Effetto hover sui link (cambio colore e traslazione verso l'alto) */
+.main-nav a:hover {
+  color: var(--fsl-blue-dark);
+  transform: translateY(-1px);
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+/* Versione mobile dell'header */
+@media (max-width: 520px) {
+  .site-header .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+}

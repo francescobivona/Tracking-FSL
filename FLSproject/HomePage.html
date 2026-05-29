@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="HomePage.css">
+</head>
+
+<body style="padding-top: 78px;">
+  <iframe src="Header.html" title="Header"
+    style="width: 100%; border: 0; height: 78px; display: block; position: fixed; top: 0; left: 0; z-index: 9999;"
+    scrolling="no"></iframe>
+  <h1>Scegli un ruolo</h1>
+  <div class="forms-container">
+    <form action="login.php" method="post" onclick="this.submit()">
+      <input type="hidden" name="role" value="admin">
+      <img class="role-image" src="userImage.png">
+      <b>ADMIN</b>
+    </form>
+    <form action="login.php" method="post" onclick="this.submit()">
+      <input type="hidden" name="role" value="tutor">
+      <img class="role-image" src="userImage.png">
+      <b>TUTOR</b>
+    </form>
+    <form action="login.php" method="post" onclick="this.submit()">
+      <input type="hidden" name="role" value="studente">
+      <img class="role-image" src="userImage.png">
+      <b>STUDENTE</b>
+    </form>
+  </div>
+  <iframe src="Footer.html" title="Footer"
+    style="width: 100%; border: 0; height: 90px; margin-top: auto; display: block;" scrolling="no"></iframe>
+</body>
+
+</html>
